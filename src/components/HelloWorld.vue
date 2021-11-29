@@ -1,5 +1,5 @@
 <template>
-  <h1>hello world</h1>
+  <div></div>
 </template>
 
 <script lang="ts">
@@ -14,3 +14,11 @@ export default class HelloWorld extends Vue {
   msg!: string;
 }
 </script>
+
+<style scoped>
+div {
+  height: 1000px;
+  width: 100vw;
+  background-image: url('../assets/images/galaxy.jpg');
+}
+</style>
