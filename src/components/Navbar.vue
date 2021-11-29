@@ -1,10 +1,28 @@
 <template>
-  <p>{{ t("hello") }}</p>
+  <nav class="fixed top-0 left-0 right-0">
+    <ol class="flex absolute left-0 right-0">
+      <li class="flex-initial">
+        <a>{{ t('nav.about') }}</a>
+      </li>
+      <li class="flex-initial">
+        <a>{{ t('nav.skills') }}</a>
+      </li>
+      <li class="flex-initial">
+        <a>{{ t('nav.experiences') }}</a>
+      </li>
+      <li class="flex-initial">
+        <a>{{ t('nav.works') }}</a>
+      </li>
+      <li class="flex-initial">
+        <a>{{ t('nav.contact') }}</a>
+      </li>
+    </ol>
+  </nav>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { useI18n } from "vue-i18n";
+import { defineComponent } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 export default defineComponent({
   setup() {
@@ -15,22 +33,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<i18n>
-{
-  "zh": {
-    "about": "关于我",
-    "skills": "技能",
-    "experiences": "经验",
-    "works": "工作",
-    "contact": "联系我"
-  },
-  "en": {
-    "about": "About",
-    "skills": "Skills",
-    "experiences": "Experiences",
-    "works": "Work",
-    "contact": "Contact" 
-  }
-}
-</i18n>

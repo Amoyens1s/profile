@@ -1,3 +1,9 @@
 {
-  "message": "hello i18n !!"
+  "nav": {
+    "about": "关于我",
+    "skills": "技能",
+    "experiences": "经验",
+    "works": "工作",
+    "contact": "联系我"
+  }
 }

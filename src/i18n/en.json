@@ -1,3 +1,9 @@
 {
-  "test": "no zh"
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experiences": "Experiences",
+    "works": "Work",
+    "contact": "Contact" 
+  }
 }
