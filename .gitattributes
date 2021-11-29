@@ -1,0 +1,22 @@
+*        text=auto
+* text   eol=lf
+*.cs     text diff=csharp
+*.java   text diff=java
+*.html   text diff=html
+*.css    text
+*.js     text
+*.ts     text
+*.sql    text
+*.png    binary
+*.ico    binary
+*.icns   binary
+
+*.csproj text merge=union
+*.sln    text merge=union eol=crlf
+
+*.docx   diff=astextplain
+*.DOCX   diff=astextplain
+
+/**/postinst* text eol=lf
+
+relative/path/*.txt text eol=lf
