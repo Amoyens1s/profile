@@ -1,8 +1,8 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0">
-    <ol class="flex absolute left-0 right-0">
+  <nav class="fixed top-0 left-0 right-0 bg-black">
+    <ol class="flex justify-center h-16">
       <li class="flex-initial">
-        <a>{{ t('nav.about') }}</a>
+        <a class="animate__animated animate__bounce">{{ t('nav.about') }}</a>
       </li>
       <li class="flex-initial">
         <a>{{ t('nav.skills') }}</a>
@@ -33,3 +33,12 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+a {
+  display: inline-block;
+  line-height: 64px;
+  width: 64px;
+  color: white;
+}
+</style>
