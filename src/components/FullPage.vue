@@ -40,8 +40,8 @@ function fullpage() {
   }
   const sections = fullpageRef.getElementsByTagName('section');
   let index = 0;
-  for (let i = 1; i < sections.length; i++) {
-    sections[i].style.display = 'none';
+  for (let i = 0; i < sections.length; i++) {
+    sections[i].style.transform = `translate3d(0, ${100 * i}vh, 0)`;
   }
   function switchTo(event: WheelEvent) {
     if (!event) {
@@ -51,22 +51,22 @@ function fullpage() {
     if (isDownWheel) {
       // length从1开始计数，但是index索引从0开始，所以要减去1
       if (index < sections.length - 1) {
-        // 如果不是最后一张，则将当前section隐藏
-        sections[index].style.display = 'none';
-        // window.scrollTo();
+        for (let i = 0; i < sections.length; i++) {
+          sections[i].style.transform = `translate3d(0, ${100 * (i - 1)}vh, 0)`;
+        }
         index++;
       }
     } else {
       if (index > 0) {
-        // 如果不是第一张，则将当前section隐藏
-        sections[index].style.display = 'none';
+        for (let i = 0; i < sections.length; i++) {
+          sections[i].style.transform = `translate3d(0, ${100 * i}vh, 0)`;
+        }
         index--;
       }
     }
-    sections[index].style.display = 'block';
   }
 
-  fullpageRef.onwheel = _.throttle(switchTo, 200, {
+  window.onwheel = _.throttle(switchTo, 1000, {
     leading: true,
     trailing: false,
   });
@@ -75,15 +75,21 @@ function fullpage() {
 
 <style scoped>
 #fullpage {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: scroll;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  transition: 1s transform cubic-bezier(0.91, 0.03, 0.12, 1);
+  overflow: hidden;
 }
 section {
   /* 块级元素会自动撑满宽度，所以只需要设置高度就行了 */
   height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 1s transform cubic-bezier(0.91, 0.03, 0.12, 1),
+    1s 1s width cubic-bezier(0.91, 0.03, 0.12, 1);
 }
 </style>

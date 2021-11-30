@@ -1,7 +1,6 @@
 <template>
-  <Navbar />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  <HelloI18n />
+  <!-- <HelloWorld /> -->
+  <FullPage />
 </template>
 
 <script lang="ts">
@@ -9,12 +8,14 @@ import { Options, Vue } from 'vue-class-component';
 import HelloI18n from './components/HelloI18n.vue';
 import HelloWorld from './components/HelloWorld.vue';
 import Navbar from './components/Navbar.vue';
+import FullPage from './components/FullPage.vue';
 
 @Options({
   components: {
     HelloWorld,
     HelloI18n,
     Navbar,
+    FullPage,
   },
 })
 export default class App extends Vue {}
@@ -27,6 +28,6 @@ export default class App extends Vue {}
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  overflow: hidden;
 }
 </style>
