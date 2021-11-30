@@ -43,7 +43,7 @@ function fullpage() {
   for (let i = 0; i < sections.length; i++) {
     sections[i].style.transform = `translate3d(0, ${100 * i}vh, 0)`;
   }
-  function switchTo(event: WheelEvent) {
+  function switchToByWheel(event: WheelEvent) {
     if (!event) {
       return;
     }
@@ -73,10 +73,53 @@ function fullpage() {
     }
   }
 
-  window.onwheel = _.throttle(switchTo, 1000, {
+  let lastY: number;
+  let currentY: number;
+  function switchToByTouch(event: TouchEvent) {
+    if (!event) {
+      return;
+    }
+
+    currentY = ~~(event.changedTouches[0].screenY / 10);
+    const isDownWheel = lastY > currentY;
+    console.log(isDownWheel);
+
+    if (isDownWheel) {
+      // length从1开始计数，但是index索引从0开始，所以要减去1
+      if (index < sections.length - 1) {
+        for (let i = 0; i < sections.length; i++) {
+          sections[i].style.transform = `translate3d(0, ${
+            100 * (i - index - 1)
+          }vh, 0)`;
+        }
+        index++;
+      }
+    } else {
+      if (index > 0) {
+        for (let i = 0; i < sections.length; i++) {
+          sections[i].style.transform = `translate3d(0, ${
+            100 * (i - index + 1)
+          }vh, 0)`;
+        }
+        index--;
+      }
+    }
+  }
+
+  window.onwheel = _.throttle(switchToByWheel, 1000, {
     leading: true,
     trailing: false,
   });
+  window.addEventListener('touchstart', (e) => {
+    lastY = ~~(e.changedTouches[0].screenY / 10);
+  });
+  window.addEventListener(
+    'touchend',
+    _.throttle(switchToByTouch, 1000, {
+      leading: true,
+      trailing: false,
+    })
+  );
 }
 </script>
 
