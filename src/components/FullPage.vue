@@ -48,18 +48,25 @@ function fullpage() {
       return;
     }
     const isDownWheel = event.deltaY > 0;
+
     if (isDownWheel) {
       // length从1开始计数，但是index索引从0开始，所以要减去1
+      console.log(index);
+
       if (index < sections.length - 1) {
         for (let i = 0; i < sections.length; i++) {
-          sections[i].style.transform = `translate3d(0, ${100 * (i - 1)}vh, 0)`;
+          sections[i].style.transform = `translate3d(0, ${
+            100 * (i - index - 1)
+          }vh, 0)`;
         }
         index++;
       }
     } else {
       if (index > 0) {
         for (let i = 0; i < sections.length; i++) {
-          sections[i].style.transform = `translate3d(0, ${100 * i}vh, 0)`;
+          sections[i].style.transform = `translate3d(0, ${
+            100 * (i - index + 1)
+          }vh, 0)`;
         }
         index--;
       }
