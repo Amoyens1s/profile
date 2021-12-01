@@ -1,5 +1,7 @@
 <template>
-  <!-- <HelloWorld /> -->
+  <video autoplay muted loop id="myVideo">
+    <source src="./assets/videos/video.mp4" type="video/mp4" />
+  </video>
   <FullPage />
 </template>
 
@@ -29,5 +31,21 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   overflow: hidden;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 0;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -100;
+}
+
+#eslint {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 </style>

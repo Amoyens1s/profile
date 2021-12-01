@@ -1,18 +1,28 @@
 <template>
-  <div id="fullpage">
-    <section class="bg-yellow-500 animate__animated animate__fadeIn">
-      One
+  <div id="fullpage1">
+    <section class="title text-black">一个有趣的人</section>
+    <section class="title">兴趣爱好</section>
+    <section class="title">技能</section>
+    <section class="title">Four</section>
+    <section class="title">联系我</section>
+  </div>
+  <div id="fullpage2">
+    <section class="bg-white">
+      <p class="text text-9xl animate__animated animate__bounceInRight">
+        Hello World!
+      </p>
     </section>
-    <section class="bg-blue-500 animate__animated animate__fadeIn">Two</section>
-    <section class="bg-red-500 animate__animated animate__fadeIn">
-      Three
-    </section>
-    <section class="bg-gray-500 animate__animated animate__fadeIn">
-      Four
-    </section>
-    <section class="bg-purple-500 animate__animated animate__fadeIn">
-      Five
-    </section>
+    <section class="bg-blue-700"></section>
+    <section class="bg-pink-700"></section>
+    <section class="bg-gray-700"></section>
+    <section class="bg-purple-700"></section>
+  </div>
+  <div id="count">
+    <section class="text-5xl">01</section>
+    <section class="text-5xl text-white">02</section>
+    <section class="text-5xl text-white">03</section>
+    <section class="text-5xl text-white">04</section>
+    <section class="text-5xl text-white">05</section>
   </div>
 </template>
 
@@ -29,19 +39,71 @@ export default defineComponent({
     };
   },
   mounted() {
-    fullpage();
+    console.log(window.innerWidth > 1024 ? '70vw' : '100vw');
+
+    const fullpage1 = fullpage('1000px', '4.5rem', 'fullpage1');
+    const fullpage2 = fullpage(
+      window.innerWidth > 1024 ? '70vw' : '100vw',
+      '100vh',
+      'fullpage2'
+    );
+    const count = fullpage('60px', '48px', 'count');
+
+    if (fullpage1 && fullpage2 && count) {
+      window.onwheel = _.throttle(
+        (event: any) => {
+          fullpage1.switchToByWheel(event);
+          fullpage2.switchToByWheel(event);
+          count.switchToByWheel(event);
+        },
+        1000,
+        {
+          leading: true,
+          trailing: false,
+        }
+      );
+      window.addEventListener('touchstart', (e) => {
+        lastY = ~~(e.changedTouches[0].screenY / 10);
+      });
+      window.addEventListener(
+        'touchend',
+        _.throttle(
+          (event: any) => {
+            fullpage1.switchToByTouch(event);
+            fullpage2.switchToByTouch(event);
+            count.switchToByTouch(event);
+          },
+          1000,
+          {
+            leading: true,
+            trailing: false,
+          }
+        )
+      );
+    }
   },
 });
 
-function fullpage() {
-  const fullpageRef = document.getElementById('fullpage');
+let lastY: number;
+function fullpage(width: string, height: string, id: string) {
+  const fullpageRef = document.getElementById(id);
   if (fullpageRef === null) {
     return;
   }
+  const heightNum = (height.match(/\d+(.\d+)?/g) as unknown as number[])[0];
+
+  const heightUnit = height.slice(heightNum.toString().length);
+  fullpageRef.style.width = width;
+  fullpageRef.style.height = height;
+  fullpageRef.style.overflow = 'hidden';
+  fullpageRef.style.textAlign = 'left';
   const sections = fullpageRef.getElementsByTagName('section');
+
   let index = 0;
   for (let i = 0; i < sections.length; i++) {
-    sections[i].style.transform = `translate3d(0, ${100 * i}vh, 0)`;
+    sections[i].style.transform = `translate3d(0, ${
+      heightNum * i
+    }${heightUnit}, 0)`;
   }
   function switchToByWheel(event: WheelEvent) {
     if (!event) {
@@ -51,13 +113,11 @@ function fullpage() {
 
     if (isDownWheel) {
       // length从1开始计数，但是index索引从0开始，所以要减去1
-      console.log(index);
-
       if (index < sections.length - 1) {
         for (let i = 0; i < sections.length; i++) {
           sections[i].style.transform = `translate3d(0, ${
-            100 * (i - index - 1)
-          }vh, 0)`;
+            heightNum * (i - index - 1)
+          }${heightUnit}, 0)`;
         }
         index++;
       }
@@ -65,15 +125,14 @@ function fullpage() {
       if (index > 0) {
         for (let i = 0; i < sections.length; i++) {
           sections[i].style.transform = `translate3d(0, ${
-            100 * (i - index + 1)
-          }vh, 0)`;
+            heightNum * (i - index + 1)
+          }${heightUnit}, 0)`;
         }
         index--;
       }
     }
   }
 
-  let lastY: number;
   let currentY: number;
   function switchToByTouch(event: TouchEvent) {
     if (!event) {
@@ -89,8 +148,8 @@ function fullpage() {
       if (index < sections.length - 1) {
         for (let i = 0; i < sections.length; i++) {
           sections[i].style.transform = `translate3d(0, ${
-            100 * (i - index - 1)
-          }vh, 0)`;
+            heightNum * (i - index - 1)
+          }${heightUnit}, 0)`;
         }
         index++;
       }
@@ -98,40 +157,47 @@ function fullpage() {
       if (index > 0) {
         for (let i = 0; i < sections.length; i++) {
           sections[i].style.transform = `translate3d(0, ${
-            100 * (i - index + 1)
-          }vh, 0)`;
+            heightNum * (i - index + 1)
+          }${heightUnit}, 0)`;
         }
         index--;
       }
     }
   }
 
-  window.onwheel = _.throttle(switchToByWheel, 1000, {
-    leading: true,
-    trailing: false,
-  });
-  window.addEventListener('touchstart', (e) => {
-    lastY = ~~(e.changedTouches[0].screenY / 10);
-  });
-  window.addEventListener(
-    'touchend',
-    _.throttle(switchToByTouch, 1000, {
-      leading: true,
-      trailing: false,
-    })
-  );
+  return {
+    switchToByWheel,
+    switchToByTouch,
+  };
 }
 </script>
 
 <style scoped>
-#fullpage {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  transition: 1s transform cubic-bezier(0.91, 0.03, 0.12, 1);
-  overflow: hidden;
+#fullpage1 {
+  color: white;
+  position: fixed;
+  top: 64px;
+  left: 10vw;
+  transition: 1s;
 }
-section {
+#fullpage2 {
+  position: fixed;
+  transition: 1s;
+  z-index: -2;
+}
+#count {
+  position: fixed;
+  transition: 1s;
+  left: 48px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+h1 {
+  position: fixed;
+  font-size: 100px;
+}
+#fullpage1 > section {
   /* 块级元素会自动撑满宽度，所以只需要设置高度就行了 */
   height: 100%;
   position: absolute;
@@ -139,7 +205,39 @@ section {
   bottom: 0;
   left: 0;
   right: 0;
-  transition: 1s transform cubic-bezier(0.91, 0.03, 0.12, 1),
-    1s 1s width cubic-bezier(0.91, 0.03, 0.12, 1);
+  z-index: -1;
+  transition: 1s transform cubic-bezier(1, 0, 0, 1);
+}
+#fullpage2 > section {
+  /* 块级元素会自动撑满宽度，所以只需要设置高度就行了 */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 1s transform cubic-bezier(0.91, 0.03, 0.12, 1);
+}
+#count > section {
+  /* 块级元素会自动撑满宽度，所以只需要设置高度就行了 */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: 1s transform cubic-bezier(0.91, 0.03, 0.12, 1);
+}
+
+.text {
+  position: absolute;
+  left: 10vw;
+  top: 20vh;
+}
+
+.title {
+  font-size: 48px;
 }
 </style>
