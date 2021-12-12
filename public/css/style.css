@@ -395,7 +395,7 @@ blockquote p {
 	background:rgba(255,255,255,0.2);
 }
 .main-header:before {
-	content:'';
+	/* content:''; */
 	position:absolute;
 	width:125px;
 	right:0;
@@ -4043,8 +4043,8 @@ section.parallax-section .bg {
     backface-visibility: hidden;
    -webkit-perspective: 1000px;
     -webkit-backface-visibility: hidden;
- 
- 
+
+
     height: 100%;
     float: left;
     width: 100%;
@@ -4877,7 +4877,7 @@ section.parallax-section .bg {
     bottom: 250px;
 }
 }
-@media only screen and (max-width: 1260px) {
+@media only screen and (max-width: 1400px) {
 .header-contacts ul{
 	display:none;
 }
@@ -4918,12 +4918,12 @@ section.parallax-section .bg {
 .hero-section-dec   ,  .share-btn , .body-color-bg {
     right:0;
 }
-.nav-button  , .main-header:before , .nh_vis{
+.nav-button , .nh_vis{
 	right:150px;
 }
 .share-btn {
     width: 150px;
-    height: 80px;
+    height: 80px;@
 	bottom:auto;
 	top:0;
 }
