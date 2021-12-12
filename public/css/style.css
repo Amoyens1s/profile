@@ -5318,6 +5318,7 @@ section.parallax-section .bg {
 }
 .half-hero-wrap , .fhhw .half-hero-wrap{
 	left:30px;
+  right:30px;
 }
 .hhw_header {
     font-size: 10px;
