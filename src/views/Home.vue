@@ -122,6 +122,7 @@
               <div class="hsc hsc-next">
                 <span><i class="fal fa-angle-right"></i></span>
               </div>
+              <span class="icp_mobile">沪ICP备2021034435号</span>
             </div>
             <!-- slider-controls end-->
             <!-- 还没实现 -->
@@ -170,4 +171,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.icp_mobile {
+  display: flex;
+  color: aliceblue;
+  position: absolute;
+  word-break: keep-all;
+  top: 0;
+  bottom: 0;
+  left: 162px;
+  text-align: center;
+  align-items: center;
+}
+</style>
