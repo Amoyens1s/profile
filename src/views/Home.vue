@@ -2,48 +2,9 @@
   <Loder></Loder>
   <!-- main start  -->
   <div id="main">
-    <header class="main-header">
-      <!-- logo  -->
-      <a href="index.html" class="ajax logo-holder"
-        ><img src="images/logo.png" alt=""
-      /></a>
-      <!-- logo end -->
-      <!-- header-contacts-->
-      <div class="header-contacts">
-        <ul>
-          <li>
-            <span>01. Github </span>
-            <a href="https://github.com/Amoyens1s">github.com/Amoyens1s</a>
-          </li>
-          <li>
-            <span>02. Email </span>
-            <a href="mailto:amoyensis@outlook.com">amoyensis@outlook.com</a>
-          </li>
-        </ul>
-        <a href="contacts.html" class="ajax contacts-btn">联系我</a>
-      </div>
-      <!-- header-contacts end-->
-    </header>
-    <!-- left-header-->
-    <aside class="left-header">
-      <span class="lh_dec color-bg"></span>
-      <div class="left-header_social">
-        <ul>
-          <li>
-            <a href="https://github.com/Amoyens1s" target="_blank"
-              ><i class="fab fa-github"></i
-            ></a>
-          </li>
-        </ul>
-      </div>
-      <span class="icp">沪ICP备2021034435号</span>
-    </aside>
-    <!-- left-header end-->
-    <!-- right header-->
-    <div class="hc_dec_color">
-      <div class="page-subtitle"><span></span></div>
-    </div>
-    <!-- right header end-->
+    <MainHeader></MainHeader>
+    <LeftHeader></LeftHeader>
+    <RightHeader></RightHeader>
     <!-- wrapper  -->
     <div id="wrapper">
       <div class="nav-overlay"></div>
@@ -69,9 +30,10 @@
                       </h1>
                       <h4>如果你因失去太阳而流泪，那么你也将失去群星了。</h4>
                       <div class="clearfix"></div>
-                      <a href="portfolio.html" class="btn ajax fl-btn color-bg"
-                        ><span>关于我</span></a
-                      >
+                      <!-- 还没实现 -->
+                      <!-- <a href="portfolio.html" class="btn ajax fl-btn color-bg">
+                        <span>关于我</span>
+                      </a> -->
                     </SwiperSlideTextVue>
                     <SwiperSlideTextVue>
                       <div class="hhw_header">教育经历</div>
@@ -162,11 +124,12 @@
               </div>
             </div>
             <!-- slider-controls end-->
-            <a class="ajax start-btn"
+            <!-- 还没实现 -->
+            <!-- <a class="ajax start-btn"
               ><span>
                 <router-link to="/about">了解更多</router-link
                 ><i class="fal fa-long-arrow-right"></i></span
-            ></a>
+            ></a> -->
             <div class="play-pause_slider hsc_pp auto_actslider">
               <i class="fas fa-play"></i>
             </div>
@@ -189,26 +152,22 @@
 </template>
 
 <script>
-import SwiperSlideImage from '../components/SwiperSlideImage.vue';
-import SwiperSlideTextVue from '../components/SwiperSlideText.vue';
+import SwiperSlideImage from '@/components/SwiperSlideImage.vue';
+import SwiperSlideTextVue from '@/components/SwiperSlideText.vue';
 import Loder from '@/components/Loder.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import LeftHeader from '@/components/LeftHeader.vue';
+import RightHeader from '@/components/RightHeader.vue';
 export default {
   components: {
     SwiperSlideImage: SwiperSlideImage,
     SwiperSlideTextVue: SwiperSlideTextVue,
     Loder,
+    MainHeader,
+    LeftHeader,
+    RightHeader,
   },
 };
 </script>
 
-<style>
-.icp {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  right: 0;
-  transform: rotate(90deg);
-  word-break: keep-all;
-  color: aliceblue;
-}
-</style>
+<style></style>

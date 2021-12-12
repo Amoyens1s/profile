@@ -155,7 +155,7 @@ function initZonar() {
                     a.preventDefault();
                     $(".horizontal-grid-wrap").animate({
                         scrollLeft: 0
-                    }, 500);					
+                    }, 500);
                     var b = $(this).attr("data-filter");
                     setTimeout(function () {
                         d.isotope({

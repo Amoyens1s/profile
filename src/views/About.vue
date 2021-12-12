@@ -2,147 +2,9 @@
   <Loder></Loder>
   <!-- main start  -->
   <div id="main">
-    <header class="main-header">
-      <!-- logo  -->
-      <a href="index.html" class="ajax logo-holder"
-        ><img src="images/logo.png" alt=""
-      /></a>
-      <!-- logo end -->
-      <!-- header-contacts-->
-      <div class="header-contacts">
-        <ul>
-          <li>
-            <span>01. Github </span>
-            <a href="https://github.com/Amoyens1s">github.com/Amoyens1s</a>
-          </li>
-          <li>
-            <span>02. Email </span>
-            <a href="mailto:amoyensis@outlook.com">amoyensis@outlook.com</a>
-          </li>
-        </ul>
-        <a href="contacts.html" class="ajax contacts-btn">联系我</a>
-      </div>
-      <!-- header-contacts end-->
-    </header>
-    <!-- left-header-->
-    <aside class="left-header">
-      <span class="lh_dec color-bg"></span>
-      <div class="left-header_social">
-        <ul>
-          <li>
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          </li>
-          <li>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-          </li>
-          <li>
-            <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
-          </li>
-        </ul>
-      </div>
-    </aside>
-    <!-- left-header end-->
-    <!-- share button-->
-    <div class="share-btn showshare color-bg">
-      <span>Share <i class="fal fa-plus"></i></span>
-    </div>
-    <!-- share button end-->
-    <!-- right header-->
-    <div class="hc_dec_color">
-      <div class="page-subtitle"><span></span></div>
-    </div>
-    <!-- right header end-->
-    <!-- wrapper  -->
-    <div id="wrapper">
-      <!-- navigation menu-->
-      <div class="nav-holder">
-        <div class="nav-holder-wrap but-hol">
-          <div class="nav-container fl-wrap">
-            <!-- nav -->
-            <nav class="nav-inner" id="menu">
-              <ul>
-                <li>
-                  <a href="#">Home</a>
-                  <!--level 2 -->
-                  <ul>
-                    <li><a href="index.html" class="ajax">Slider</a></li>
-                    <li><a href="index2.html" class="ajax">Carousel</a></li>
-                    <li><a href="index3.html" class="ajax">Slideshow</a></li>
-                    <li><a href="index4.html" class="ajax">Video</a></li>
-                    <li><a href="index5.html" class="ajax">Image</a></li>
-                  </ul>
-                  <!--level 2 end -->
-                </li>
-                <li><a href="about.html" class="ajax act-link">About</a></li>
-                <li>
-                  <a href="#">Portfolio</a>
-                  <!--level 2 -->
-                  <ul>
-                    <li>
-                      <a href="portfolio.html" class="ajax">Horizonatal</a>
-                    </li>
-                    <li>
-                      <a href="portfolio3.html" class="ajax"
-                        >Fullscreen Grid
-                      </a>
-                    </li>
-                    <li>
-                      <a href="portfolio2.html" class="ajax">Column Grid</a>
-                    </li>
-                    <li>
-                      <a href="portfolio4.html" class="ajax">Column Grid 2</a>
-                    </li>
-                    <li>
-                      <a href="#">Single</a>
-                      <!--level 3 -->
-                      <ul>
-                        <li>
-                          <a href="portfolio-single.html" class="ajax"
-                            >Style 1</a
-                          >
-                        </li>
-                        <li>
-                          <a href="portfolio-single2.html" class="ajax"
-                            >Style 2</a
-                          >
-                        </li>
-                        <li>
-                          <a href="portfolio-single3.html" class="ajax"
-                            >Style 3</a
-                          >
-                        </li>
-                        <li>
-                          <a href="portfolio-single4.html" class="ajax"
-                            >Style 4</a
-                          >
-                        </li>
-                        <li>
-                          <a href="portfolio-single5.html" class="ajax"
-                            >Style 5</a
-                          >
-                        </li>
-                      </ul>
-                      <!--level 3 end -->
-                    </li>
-                  </ul>
-                  <!--level 2 end -->
-                </li>
-                <li><a href="contacts.html" class="ajax">Contacts</a></li>
-                <li><a href="blog.html" class="ajax">Blog</a></li>
-              </ul>
-            </nav>
-            <!-- nav end-->
-          </div>
-          <div class="nav-footer">
-            <span>&#169; Zonar 2020 / All rights reserved. </span>
-          </div>
-          <div class="nav-holder-wrap_line"></div>
-          <div class="nav-holder-wrap_dec"></div>
-        </div>
-      </div>
+    <MainHeader></MainHeader>
+    <LeftHeader></LeftHeader>
+    <RightHeader></RightHeader>
       <div class="nav-overlay"></div>
       <!-- navigation menu end  -->
       <!-- content-->
@@ -1002,28 +864,17 @@
         </div>
         <i class="far fa-angle-down"></i>
       </div>
-      <!-- share-wrapper-->
-      <div class="share-wrapper">
-        <div class="close-share-btn">
-          <i class="fal fa-long-arrow-left"></i>
-        </div>
-        <div class="share-container fl-wrap isShare"></div>
-      </div>
-      <!-- share-wrapper  end -->
     </div>
     <!-- wrapper end -->
-    <!-- cursor-->
-    <div class="element">
-      <div class="element-item"></div>
-    </div>
-    <!-- cursor end-->
-  </div>
   <!-- Main end -->
 </template>
 
 <script>
 import Loder from '@/components/Loder.vue';
-export default { components: { Loder } };
+import LeftHeader from '@/components/LeftHeader.vue';
+import MainHeader from '@/components/MainHeader.vue';
+import RightHeader from '@/components/RightHeader.vue';
+export default { components: { Loder, LeftHeader, MainHeader, RightHeader } };
 </script>
 
 <style></style>
