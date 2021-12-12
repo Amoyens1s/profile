@@ -1,4 +1,10 @@
 module.exports = {
+  pages: {
+    index: {
+      entry: './src/main.ts',
+      title: '子居的小窝'
+    }
+  },
   // 基本路径
   publicPath: './',
 

@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <!-- logo  -->
-    <a class="ajax logo-holder">
+    <a class="logo-holder">
       <img src="images/logo.png" alt="" />
     </a>
     <!-- logo end -->
@@ -17,7 +17,8 @@
           <a href="mailto:amoyensis@outlook.com">amoyensis@outlook.com</a>
         </li>
       </ul>
-      <a href="contacts.html" class="ajax contacts-btn">联系我</a>
+      <!-- 暂未实现 -->
+      <!-- <a href="contacts.html" class="ajax contacts-btn">联系我</a> -->
     </div>
     <!-- header-contacts end-->
   </header>
