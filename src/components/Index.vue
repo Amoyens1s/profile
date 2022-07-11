@@ -47,7 +47,7 @@
           </li>
         </ul>
       </div>
-      <span class="icp">沪ICP备2021034435号</span>
+      <a href="https://beian.miit.gov.cn/" class="icp">沪ICP备2021034435号</a>
     </aside>
     <!-- left-header end-->
     <!-- right header-->

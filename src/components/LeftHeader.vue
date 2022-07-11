@@ -1,7 +1,7 @@
 <template>
   <aside class="left-header">
     <span class="lh_dec color-bg"></span>
-    <span class="icp">沪ICP备2021034435号</span>
+    <a href="https://beian.miit.gov.cn/" class="icp">沪ICP备2021034435号</a>
   </aside>
 </template>
 

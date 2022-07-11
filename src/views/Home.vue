@@ -122,7 +122,7 @@
               <div class="hsc hsc-next">
                 <span><i class="fal fa-angle-right"></i></span>
               </div>
-              <span class="icp_mobile">沪ICP备2021034435号</span>
+              <a href="https://beian.miit.gov.cn/" class="icp_mobile">沪ICP备2021034435号</a>
             </div>
             <!-- slider-controls end-->
             <!-- 还没实现 -->
